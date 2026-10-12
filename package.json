@@ -1,0 +1,16 @@
+{
+  "name": "lunex-scripts",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Private Lua snippet hosting with Google sign-in",
+  "main": "backend/server.js",
+  "scripts": { "start": "node backend/server.js" },
+  "engines": { "node": ">=20" },
+  "dependencies": {
+    "express": "^4.21.2",
+    "firebase-admin": "^13.0.2",
+    "pg": "^8.13.1",
+    "helmet": "^8.0.0",
+    "express-rate-limit": "^7.5.0"
+  }
+}

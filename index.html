@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0c12">
+  <title>Lunex Scripts — منصة السورسات</title>
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
+  <header class="topbar">
+    <a class="brand" href="/"><span class="brand-mark" id="brandIcon"></span><span><b>Lunex</b><small>SCRIPTS PLATFORM</small></span></a>
+    <div class="top-actions"><span id="userEmail" class="user-email"></span><button id="logoutBtn" class="btn btn-quiet hidden">تسجيل الخروج</button><button id="themeToggle" class="theme-toggle" type="button" aria-label="تفعيل الوضع الداكن" title="تفعيل الوضع الداكن"><span id="themeIcon"></span></button></div>
+  </header>
+  <main class="shell">
+    <section id="loginView" class="login-layout">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="pulse"></span> مساحة خاصة لسورساتك</div>
+        <h1>كل سورساتك.<br><span>في مكان واحد.</span></h1>
+        <p>انشر أكواد Lua، رتّب مشاريعك، وتحكّم بصلاحيات الوصول من لوحة واحدة.</p>
+        <div class="feature-list">
+          <div><span class="feature-icon" data-icon="lock"></span><span><b>خصوصية افتراضية</b><small>سورساتك لا تظهر للمستخدمين الآخرين.</small></span></div>
+          <div><span class="feature-icon" data-icon="cloud"></span><span><b>حفظ سحابي</b><small>افتح مشاريعك من الآيباد أو الجوال.</small></span></div>
+          <div><span class="feature-icon" data-icon="activity"></span><span><b>إدارة بسيطة</b><small>تعديل وحذف ومتابعة حالة كل سورس.</small></span></div>
+        </div>
+      </div>
+      <div class="login-card">
+        <div class="login-symbol" id="loginIcon"></div>
+        <h2>أهلًا بك في Lunex</h2><p>سجّل الدخول للمتابعة إلى مساحتك الخاصة.</p>
+        <button id="googleBtn" class="btn btn-google"><span id="googleIcon"></span> المتابعة باستخدام Google</button>
+        <p class="fine-print">بتسجيل الدخول، أنت توافق على عدم نشر أكواد ضارة أو غير مصرح بها.</p>
+        <div id="loginError" class="notice error hidden"></div>
+      </div>
+    </section>
+
+    <section id="appView" class="hidden">
+      <div class="welcome-row"><div><div class="eyebrow">مساحة العمل</div><h1>لوحة <span>التحكم</span></h1><p>إدارة سورسات Lua الخاصة بك.</p></div><button id="newScriptBtn" class="btn btn-primary"><span data-icon="plus"></span> سورس جديد</button></div>
+      <div class="stats-grid">
+        <article class="stat-card"><span class="stat-icon violet" data-icon="files"></span><small>إجمالي السورسات</small><b id="statTotal">0</b></article>
+        <article class="stat-card"><span class="stat-icon green" data-icon="shield-check"></span><small>سورسات مفعّلة</small><b id="statEnabled">0</b></article>
+        <article class="stat-card"><span class="stat-icon blue" data-icon="calendar"></span><small>مساحتك الخاصة</small><b>آمنة</b></article>
+      </div>
+      <div id="adminPanel" class="panel hidden"><div class="section-heading"><div><h2>سجل الإدارة</h2><p>آخر الأحداث المسجلة على المنصة.</p></div><button id="refreshEventsBtn" class="btn btn-secondary">تحديث السجل</button></div><div id="eventsList" class="events-list"></div></div>
+      <div class="panel"><div class="section-heading"><div><h2>سورساتي</h2><p>السورسات محفوظة بشكل خاص بحسابك.</p></div><button id="refreshBtn" class="icon-btn" aria-label="تحديث"><span data-icon="refresh"></span></button></div><div id="scriptsList" class="scripts-list"></div></div>
+    </section>
+  </main>
+
+  <dialog id="scriptDialog" class="editor-dialog">
+    <form id="scriptForm" method="dialog">
+      <div class="dialog-head"><div><div class="eyebrow">LUA WORKSPACE</div><h2 id="dialogTitle">إنشاء سورس</h2></div><button type="button" id="closeDialogBtn" class="icon-btn" aria-label="إغلاق"><span data-icon="x"></span></button></div>
+      <label for="scriptTitle">اسم السورس</label><input id="scriptTitle" maxlength="80" placeholder="مثال: My Roblox Script" required>
+      <label for="scriptSource">الكود</label><textarea id="scriptSource" spellcheck="false" autocapitalize="off" autocomplete="off" placeholder="-- ألصق كود Lua هنا..." required></textarea>
+      <div class="editor-meta"><span>Lua / Luau</span><span id="charCount">0 حرف</span></div>
+      <div id="editorError" class="notice error hidden"></div>
+      <div class="dialog-actions"><button type="button" id="deleteScriptBtn" class="btn btn-danger hidden">حذف السورس</button><span class="spacer"></span><button type="button" id="cancelBtn" class="btn btn-secondary">إلغاء</button><button type="submit" id="saveBtn" class="btn btn-primary">حفظ السورس</button></div>
+    </form>
+  </dialog>
+  <div id="toast" class="toast hidden" role="status"></div>
+  <footer>© <span id="year"></span> Lunex Scripts <span>•</span> خصوصية أولًا</footer>
+  <script type="module" src="/app.js"></script>
+</body>
+</html>
